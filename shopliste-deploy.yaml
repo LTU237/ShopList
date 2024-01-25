@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: shoplistk8-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shoplistk8-deployment
+template:
+    metadata:
+      labels:
+        app: shoplistk8-deployment
+    spec:
+      containers:
+      - name: shop-k8s-repos
+        image: laura282/shop-k8s-repos:1.0
+   ports:
+   -   containerPort: 8080
