@@ -1,6 +1,9 @@
 package com.example.ShopListe.Service;
 
 import java.util.Optional;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.example.ShopListe.Repo.ShopItems;
@@ -27,13 +30,23 @@ public class ShopService {
         return this.shopRepo.findById(id);
     }
 
-    public Iterable<ShopItems> getAll() {
-        return this.shopRepo.findAll();
+    public Page<ShopItems> getAll(Pageable pageable) {
+        return this.shopRepo.findAll(pageable);
     }
 
     // UPDATE
-    public ShopItems update(ShopItems item) {
-        return this.shopRepo.save(item);
+    public ShopItems update(ShopItems existingItem) {
+        return this.shopRepo.save(existingItem);
+    }
+
+    public ShopItems update(String id, String name, String quantity) {
+        Optional<ShopItems> optionalItem = this.shopRepo.findById(id);
+
+        ShopItems existingItem = optionalItem.get();
+        existingItem.setName(name);
+        existingItem.setQuantity(quantity);
+        return this.shopRepo.save(existingItem);
+
     }
 
     // DELETE

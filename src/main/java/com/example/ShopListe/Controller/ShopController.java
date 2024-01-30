@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.ShopListe.Repo.ShopItems;
 import com.example.ShopListe.Service.ShopService;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,8 +50,8 @@ public class ShopController {
     }
 
     @GetMapping("/readAll")
-    public ResponseEntity<Iterable<ShopItems>> ReadItems() {
-        return new ResponseEntity<>(shopService.getAll(), HttpStatus.OK);
+    public ResponseEntity<Page<ShopItems>> ReadItems(Pageable pageable) {
+        return new ResponseEntity<>(shopService.getAll(pageable), HttpStatus.OK);
     }
 
     // UPDATE
