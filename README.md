@@ -1,1 +1,1 @@
-Springboot CRUD App with MongoDB, Thymeleaf, Sample app
+Springboot CRUD App with MongoDB, Thymeleaf, Sample Security
