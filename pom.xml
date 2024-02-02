@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ShopListe</artifactId>
+	<artifactId>gcp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ShopListe</name>
 	<description>Demo project for Spring Boot</description>
@@ -59,6 +59,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+            <groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			<configuration>
+			<mainClass>com.example.ShopListe.ShopListeApplication</mainClass>
+				<version>1</version>
+				<projectId>shopliste</projectId>
+			</configuration>
 			</plugin>
 		</plugins>
 
